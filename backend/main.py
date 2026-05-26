@@ -7,7 +7,7 @@ from models.model import SensorData
 app = FastAPI()
 
 API_KEY = "ACESS_KEY_API"
-THINGSPEAK_API_KEY = "SUA_WRITE_API_KEY"
+THINGSPEAK_API_KEY = "4Q29CCRIUG8OAR22"
 
 INTERVALO_MINIMO_DE_TEMPO = 20
 ultimo_envio = {}
@@ -58,3 +58,7 @@ async def receber_dados(data: SensorData):
         "status": "enviado",
         "thingspeak": resposta.text
     }
+
+@app.get("/")
+def home():
+    return {"resposta": "ok"}
